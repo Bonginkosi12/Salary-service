@@ -3,19 +3,19 @@ package com.bonginkosi.salaryservice.dto;
 import java.math.BigDecimal;
 
 public class SalaryDto {
-
+    private Integer id;
     private BigDecimal basicSalary;
     private BigDecimal bonus;
     private BigDecimal deductions;
     private BigDecimal tax;
     private BigDecimal overtimePay;
-    private Long userId;
+    private Integer userId;
 
     //Default constructor
     public SalaryDto() {}
 
     //Parameterized constructor
-    public SalaryDto(BigDecimal basicSalary, BigDecimal bonus,BigDecimal deductions,BigDecimal tax,BigDecimal overtimePay, Long userId) {
+    public SalaryDto(BigDecimal basicSalary, BigDecimal bonus,BigDecimal deductions,BigDecimal tax,BigDecimal overtimePay, Integer userId) {
 
         this.basicSalary = basicSalary;
         this.bonus = bonus;
@@ -61,11 +61,19 @@ public class SalaryDto {
         this.overtimePay = overtimePay;
     }
 
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
+
+    public Integer getId(){
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
 
 }

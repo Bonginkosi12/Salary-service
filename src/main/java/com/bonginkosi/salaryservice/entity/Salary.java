@@ -11,7 +11,7 @@ public class Salary {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "salary_id")
-    private Long id;
+    private Integer id;
 
     @Column(name = "basic_salary")
     private BigDecimal basicSalary;
@@ -29,15 +29,15 @@ public class Salary {
     private BigDecimal overtimePay;
 
     @Column(name = "user_id")
-    private Long userId;
+    private Integer userId;
 
 
     // Getters and Setters methods to access and modify the attributes
     //For id
-    public Long getId(){
+    public Integer getId(){
         return id;
     }
-    public void setId(Long id){
+    public void setId(Integer id){
         this.id = id;
     }
 
@@ -80,10 +80,10 @@ public class Salary {
     }
 
     //For userId
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
