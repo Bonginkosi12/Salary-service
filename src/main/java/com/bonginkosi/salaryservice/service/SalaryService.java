@@ -24,42 +24,32 @@ public class SalaryService {
 
 
     //Method to create salary record
-    // Create Salary Record
     public SalaryDto createSalary(SalaryDto salaryDto) {
 
         // Verify that the employee exists
         EmployeeDto employee;
 
         try {
-            employee = userClient.getUserById(salaryDto.getUserId());
+            employee = userClient.getEmployeeById(salaryDto.getUserId());
         } catch (FeignException.NotFound ex) {
             throw new RuntimeException(
                     "User with ID " + salaryDto.getUserId() + " was not found."
             );
         }
 
-        // Create Entity
+        // Create Entity object
         Salary salary = new Salary();
 
         salary.setBasicSalary(salaryDto.getBasicSalary());
         salary.setBonus(salaryDto.getBonus());
         salary.setDeductions(salaryDto.getDeductions());
+        salary.setTax(salaryDto.getTax());
+        salary.setOvertimePay(salaryDto.getOvertimePay());
         salary.setUserId(employee.getId());
 
-        // Save
-        Salary savedSalary = salaryRepository.save(salary);
+        salaryRepository.save(salary);
 
-        // Build Response
-        SalaryDto response = new SalaryDto();
-
-        response.setId(savedSalary.getId());
-        response.setBasicSalary(savedSalary.getBasicSalary());
-        response.setBonus(savedSalary.getBonus());
-        response.setDeductions(savedSalary.getDeductions());
-        response.setUserId(savedSalary.getUserId());
-
-        return response;
+        return salaryDto;
     }
-
 
 }
