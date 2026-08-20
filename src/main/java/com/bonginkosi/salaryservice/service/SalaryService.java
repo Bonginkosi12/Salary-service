@@ -72,7 +72,7 @@ public class SalaryService {
     // method to update a salary record
     public SalaryDto updateSalary(Integer id, SalaryDto salaryDto) {
         Salary salary = salaryRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Employee not found"));
+                .orElseThrow(() -> new RuntimeException("Salary record not found"));
 
         if (salaryDto.getBasicSalary() != null) {
             salary.setBasicSalary(salaryDto.getBasicSalary());
