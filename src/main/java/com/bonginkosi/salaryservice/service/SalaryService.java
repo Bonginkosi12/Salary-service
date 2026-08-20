@@ -69,6 +69,42 @@ public class SalaryService {
         salaryRepository.save(salary);
     }
 
+    // method to update a salary record
+    public SalaryDto updateSalary(Integer id, SalaryDto salaryDto) {
+        Salary salary = salaryRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Employee not found"));
+
+        if (salaryDto.getBasicSalary() != null) {
+            salary.setBasicSalary(salaryDto.getBasicSalary());
+        }
+
+        if (salaryDto.getBonus() != null) {
+            salary.setBonus(salaryDto.getBonus());
+        }
+
+        if (salaryDto.getDeductions() != null) {
+            salary.setDeductions(salaryDto.getDeductions());
+        }
+
+        if (salaryDto.getTax() != null) {
+            salary.setTax(salaryDto.getTax());
+        }
+
+        if (salaryDto.getOvertimePay() != null) {
+            salary.setOvertimePay(salaryDto.getOvertimePay());
+        }
+        salaryRepository.save(salary);
+
+        return new SalaryDto(
+                salary.getBasicSalary(),
+                salary.getBonus(),
+                salary.getDeductions(),
+                salary.getTax(),
+                salary.getOvertimePay()
+        );
+
+    }
+
 
 }
 

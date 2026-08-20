@@ -9,20 +9,23 @@ public class SalaryDto {
     private BigDecimal deductions;
     private BigDecimal tax;
     private BigDecimal overtimePay;
-    private Integer userId;
+    private Integer employeeId;
 
     //Default constructor
     public SalaryDto() {}
 
     //Parameterized constructor
-    public SalaryDto(BigDecimal basicSalary, BigDecimal bonus,BigDecimal deductions,BigDecimal tax,BigDecimal overtimePay, Integer userId) {
-
+    public SalaryDto(Integer id,BigDecimal basicSalary, BigDecimal bonus,BigDecimal deductions,BigDecimal tax,BigDecimal overtimePay, Integer employeeId) {
+        this.id = id;
         this.basicSalary = basicSalary;
         this.bonus = bonus;
         this.deductions = deductions;
         this.tax = tax;
         this.overtimePay = overtimePay;
-        this.userId = userId;
+        this.employeeId = employeeId;
+    }
+
+    public SalaryDto(BigDecimal basicSalary, BigDecimal bonus, BigDecimal deductions, BigDecimal tax, BigDecimal overtimePay) {
     }
 
     //Getters and Setters
@@ -61,11 +64,11 @@ public class SalaryDto {
         this.overtimePay = overtimePay;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getEmployeeId() {
+        return employeeId;
     }
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setEmployeeId(Integer employeeId) {
+        this.employeeId = employeeId;
     }
 
     public Integer getId(){

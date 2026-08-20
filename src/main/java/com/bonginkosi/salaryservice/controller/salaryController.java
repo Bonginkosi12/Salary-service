@@ -16,11 +16,19 @@ public class salaryController {
         this.salaryService = salaryService;
     }
 
-
+    //Method to create a Salary record for an employee
     @PostMapping
     public SalaryDto createSalary(@RequestBody SalaryDto salaryDto) {
         return salaryService.createSalary(salaryDto);
     }
+
+    // Patch method to update a salary record
+    @PatchMapping("/{id}")
+    public SalaryDto updateSalary(@PathVariable Integer id, @RequestBody SalaryDto salaryDto) {
+        return salaryService.updateSalary(id,salaryDto);
+    }
+
+
 
 
 }
