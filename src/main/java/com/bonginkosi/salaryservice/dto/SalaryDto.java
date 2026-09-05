@@ -78,5 +78,19 @@ public class SalaryDto {
         this.id = id;
     }
 
+    //Converts EmployeeDto object into a text and writes it into a log
+    @Override
+    public String toString() {
+        return "EmployeeDto{" +
+                "id=" + id +
+                ", basicSalary='" + basicSalary + '\'' +
+                ", bonus='" + bonus + '\'' +
+                ", deduction=" + deductions +
+                ", tax='" + tax + '\'' +
+                ", overtimePay='" + overtimePay + '\'' +
+                ", employeeId='" + employeeId + '\'' +
+                '}';
+    }
+
 
 }

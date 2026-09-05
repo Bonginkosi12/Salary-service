@@ -98,5 +98,21 @@ public class EmployeeCreatedEvent {
         this.department = department;
     }
 
+    //Converts EmployeeCreatedEvent object into a text and writes it into a log
+    @Override
+    public String toString() {
+        return "EmployeeDto{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", age=" + age +
+                ", role='" + role + '\'' +
+                ", mobileNumbers='" + mobileNumbers + '\'' +
+                ", email='" + email + '\'' +
+                ", department='" + department + '\'' +
+                ", employmentType='" + employmentType + '\'' +
+                '}';
+    }
+
 
 }

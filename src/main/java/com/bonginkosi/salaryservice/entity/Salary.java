@@ -28,8 +28,8 @@ public class Salary {
     @Column(name = "overtimePay")
     private BigDecimal overtimePay;
 
-    @Column(name = "user_id")
-    private Integer userId;
+    @Column(name = "employee_id")
+    private Integer employeeId;
 
 
     // Getters and Setters methods to access and modify the attributes
@@ -79,12 +79,26 @@ public class Salary {
         this.overtimePay = overtimePay;
     }
 
-    //For userId
-    public Integer getUserId() {
-        return userId;
+    //For employeeId
+    public Integer getEmployeeId() {
+        return employeeId;
     }
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setEmployeeId(Integer employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    //Converts Salary object into a text and writes it into a log
+    @Override
+    public String toString() {
+        return "EmployeeDto{" +
+                "id=" + id +
+                ", basicSalary='" + basicSalary + '\'' +
+                ", bonus='" + bonus + '\'' +
+                ", deduction=" + deductions +
+                ", tax='" + tax + '\'' +
+                ", overtimePay='" + overtimePay + '\'' +
+                ", employeeId='" + employeeId + '\'' +
+                '}';
     }
 
 }
